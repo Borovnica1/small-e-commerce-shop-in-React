@@ -13,7 +13,7 @@ class CartTable extends React.Component {
     let thereAreItemsInCart = false;
     if (this.props.items && Object.keys(this.props.items).length > 1) {
       cartRows = Object.keys(this.props.items).map(el => {
-        if (el != 'data' && this.props.items[el] > 0) {
+        if (this.props.items[el] > 0) {
           thereAreItemsInCart = true;
           const product = this.props.items.data.find(x => x.id == el);
           const amountOfThisProduct = this.props.items[el];

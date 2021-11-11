@@ -58,11 +58,16 @@
   color: white;
 }
 
+.category-dropdown {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+
 .sort-dropdown {
   position: absolute;
   top: 10px;
-  left: 90%;
-  transform: translateX(-50%);
+  right: 20px;
 }
 
 .product button {

@@ -13,14 +13,16 @@ class Products extends React.Component {
   render() {
     let products;
     let product;
+    let categories;
 
     if (this.props.items) {
       products = this.props.items.map((c) => <Product inCart={this.props.inCart} key={c.id} item={c} onCartChange={this.props.onCartChange} />);
 
       product = <OnlyProduct inCart={this.props.inCart} items={this.props.items} onCartChange={this.props.onCartChange} />;
+
+      categories = this.props.categories.map((c) => <Option category={c} />)
     };
     
-
     if (this.props.oneProduct) return (
       <div className="products-grid">
         {product}
@@ -36,11 +38,22 @@ class Products extends React.Component {
             <option value="lowTitle">Name: A-Z</option>
             <option value="highTitle">Name: Z-A</option>
           </select>
+
+          <select onChange={() => this.props.sortByCategory(document.querySelector('.category-dropdown').value)} className="category-dropdown" name="category-dropdown" id="sort-dropdown">
+            <option value="/">Category: All</option>
+            {categories}
+          </select>
         {products}
       </div>
     ); 
   };
 };
+
+function Option(props) {
+  return (
+    <option value={'/category/'+props.category}>Category: {props.category}</option>
+  )
+}
 
 class Product extends React.Component {
   constructor(props) {
