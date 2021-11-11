@@ -9,6 +9,8 @@ import Cart from './Cart';
 
 class App extends React.Component {
 
+  /* maybe keep here state data of products instead in Cart component*/
+
   render() {
     return (
       <BrowserRouter>
@@ -20,6 +22,7 @@ class App extends React.Component {
             <Route path="/product" element={<Cart oneProduct={true} />}>
               <Route path=":id" />
             </Route>
+            <Route path="/cart" element={<Cart oneProduct={false} cartTable={true} />}/>
           </Routes>
         </div>
       </BrowserRouter>

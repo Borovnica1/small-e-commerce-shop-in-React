@@ -12,17 +12,13 @@ function getProduct(id, items) {
 function Product(props) {
   let params = useParams();
   const product = getProduct(Number(params.id), props.items);
-  console.log('WRTFF', props.items, product);
   let button;
   if (product && product.id in props.inCart) {
-    console.log('PROIVODDDD JE U KORPIII')
     button = <button className="product-add-cart product-add-cart--added" >Added to Cart</button>
   } else {
-    console.log('PROIVODDDD nije U KORPIII')
     button = <AddCart onCartChange={props.onCartChange} id={params.id}/>
   }
 
-  console.log('IMAMO ID:', params.id, product, button);
   if (params.id && product) return (
     <div className="product product--only">
       <img src={product.image} />

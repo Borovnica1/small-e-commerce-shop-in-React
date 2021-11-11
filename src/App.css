@@ -1,7 +1,17 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
 .App {
   text-align: center;
   background-color: #282c34;
-
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -62,7 +72,7 @@
 .product {
   position: relative;
   width: 300px;
-  height: 450px;
+  height: 490px;
   margin: 10px;
   overflow: hidden;
   padding: 20px;
@@ -71,7 +81,7 @@
 }
 
 .product--only {
-  padding-bottom: 50px;
+  padding-bottom: 80px;
   height: fit-content;
 }
 
@@ -80,9 +90,10 @@
 }
 
 .product img {
+  background-color: white;
   width: 100%;
   height: 300px;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 
@@ -113,4 +124,55 @@
 .product-img img:hover,
 .product a:hover {
   opacity: .8;
+}
+
+nav h3 {
+  margin: 0px;
+  margin-bottom: 10px;
+}
+
+
+.cart-table {
+  max-width: 1000px;
+  width: 90%;
+  margin: auto;
+  background-color: white;
+  padding: 20px;
+}
+
+
+.cart-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.cart-row img {
+  height: 100%;
+  object-fit: contain;
+}
+
+.cart-row * {
+  width: 20%;
+}
+
+.cart-increment {
+  cursor: pointer;
+}
+
+.cart-decrement {
+  cursor: pointer;
+}
+
+.cart-close {
+  cursor: pointer;
+}
+
+.cart-increment:hover,
+.cart-decrement:hover,
+.cart-close:hover {
+  opacity: .7;
 }
