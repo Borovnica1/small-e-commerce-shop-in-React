@@ -26,7 +26,7 @@ class CartTable extends React.Component {
     if (thereAreItemsInCart) cartRows.push(React.createElement(
       'h3',
       null,
-      `Ukupno: $${Math.round(sumPrice * 100) / 100}`
+      `Total: $${Math.round(sumPrice * 100) / 100}`
     ))
     else cartRows = 'There are no items in Cart';
 
@@ -45,27 +45,27 @@ function CartRow(props) {
       <img src={props.item.image} />
       <h3>{(props.item.title).length < 40 ? props.item.title : (props.item.title).slice(0, 40) + '...'}</h3>
       <h3>${Math.round((props.item.price * props.quant) * 100) / 100}</h3>
-      <h3><IncrementByOne onByOneChange={props.onByOneChange} id={props.item.id} /> {props.quant} <DecrementByOne onByOneChange={props.onByOneChange} id={props.item.id} /></h3>
-      <DeleteRow removeProductFromCart={props.removeProductFromCart} id={props.item.id} />
+      <div><IncrementByOne onByOneChange={props.onByOneChange} id={props.item.id} /> {props.quant} <DecrementByOne onByOneChange={props.onByOneChange} id={props.item.id} /></div>
+      <div><DeleteRow removeProductFromCart={props.removeProductFromCart} id={props.item.id} /></div>
     </div>
   )
 };
 
 function DeleteRow(props) {
   return (
-    <span className="cart-close" onClick={() => props.removeProductFromCart(props.id)}>CLOSE</span>
+    <span className="cart-close" onClick={() => props.removeProductFromCart(props.id)}><i class="fas fa-times-circle"></i></span>
   );
 };
 
 function IncrementByOne(props) {
   return (
-    <span className="cart-increment" onClick={() => props.onByOneChange(props.id, 'inc')}>UP</span>
+    <span className="cart-increment" onClick={() => props.onByOneChange(props.id, 'inc')}><i class="fas fa-plus"></i></span>
   );
 };
  
 function DecrementByOne(props) {
   return (
-    <span className="cart-decrement" onClick={() => props.onByOneChange(props.id, 'dec')}>DOWN</span>
+    <span className="cart-decrement" onClick={() => props.onByOneChange(props.id, 'dec')}><i class="fas fa-minus"></i></span>
   );
 };
 

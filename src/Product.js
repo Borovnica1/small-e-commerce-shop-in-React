@@ -13,7 +13,7 @@ function Product(props) {
   let params = useParams();
   const product = getProduct(Number(params.id), props.items);
   let button;
-  if (product && product.id in props.inCart) {
+  if (product && props.inCart[product.id] > 0) {
     button = <button className="product-add-cart product-add-cart--added" >Added to Cart</button>
   } else {
     button = <AddCart onCartChange={props.onCartChange} id={params.id}/>

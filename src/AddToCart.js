@@ -14,7 +14,7 @@ class AddCart extends React.Component {
 
   render() {
     return (
-      <button className="product-add-cart" onClick={this.handleAddToCart}>Add to Cart</button>
+      <button className="product-add-cart" onClick={this.handleAddToCart}>Add to Cart <i class="fas fa-cart-plus"></i></button>
     );
   }
 };
