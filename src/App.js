@@ -41,6 +41,7 @@ class App extends React.Component {
       return (a, b) => a[propName] == b[propName] ? 0 : a[propName] < b[propName] ? 1 : -1;
     }
     switch (type) {
+      case 'default': newData = this.state.data.sort(propComparator('id', 'up')); break;
       case 'low': newData = this.state.data.sort(propComparator('price', 'up')); break;
       case 'high': newData = this.state.data.sort(propComparator('price', 'down')); break;
       case 'lowTitle': newData = this.state.data.sort(propComparator('title', 'up')); break;

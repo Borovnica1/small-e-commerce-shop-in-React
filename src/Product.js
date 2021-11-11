@@ -32,8 +32,7 @@ function Product(props) {
   </div>
   );
   else return (
-    <div style={{color: 'red', padding: '0px'}}>Product ????</div>
-    /* DODAJ LOADER */
+    <div style={{color: 'red', padding: '0px'}}><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
   )
 }
 
