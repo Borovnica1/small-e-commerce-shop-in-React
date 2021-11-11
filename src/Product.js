@@ -27,12 +27,12 @@ function Product(props) {
         <h3 className="product-price">${product.price}</h3>
     </div>
     <h3 className="product-desc">{product.description}</h3>
-    <h3 className="product-rating">Rating: <i class="fas fa-star"></i> {product.rating.rate}</h3>
+    <h3 className="product-rating">Rating: <i className="fas fa-star"></i> {product.rating.rate}</h3>
     {button}
   </div>
   );
   else return (
-    <div style={{color: 'red', padding: '0px'}}><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
+    <div style={{color: 'red', padding: '0px'}}><div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
   )
 }
 

@@ -53,19 +53,19 @@ function CartRow(props) {
 
 function DeleteRow(props) {
   return (
-    <span className="cart-close" onClick={() => props.removeProductFromCart(props.id)}><i class="fas fa-times-circle"></i></span>
+    <span className="cart-close" onClick={() => props.removeProductFromCart(props.id)}><i className="fas fa-times-circle"></i></span>
   );
 };
 
 function IncrementByOne(props) {
   return (
-    <span className="cart-increment" onClick={() => props.onByOneChange(props.id, 'inc')}><i class="fas fa-plus"></i></span>
+    <span className="cart-increment" onClick={() => props.onByOneChange(props.id, 'inc')}><i className="fas fa-plus"></i></span>
   );
 };
  
 function DecrementByOne(props) {
   return (
-    <span className="cart-decrement" onClick={() => props.onByOneChange(props.id, 'dec')}><i class="fas fa-minus"></i></span>
+    <span className="cart-decrement" onClick={() => props.onByOneChange(props.id, 'dec')}><i className="fas fa-minus"></i></span>
   );
 };
 

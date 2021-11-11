@@ -11,7 +11,7 @@ function Nav(props) {
       <nav>
         <ul>
           <li><Link to={`/products`}>Products</Link></li>
-          <Link to={`/cart`}><li className="cart-icon"><span className="cart-counter">{props.productsCnt}</span><i class="fas fa-shopping-cart fa-2x"></i></li></Link>
+          <Link to={`/cart`}><li className="cart-icon"><span className="cart-counter">{props.productsCnt}</span><i className="fas fa-shopping-cart fa-2x"></i></li></Link>
         </ul>
       </nav>
     </header>
