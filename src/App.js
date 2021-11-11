@@ -7,6 +7,7 @@ import ProductLol from './Product';
 import { BrowserRouter, Routes, Route, Switch, Link } from 'react-router-dom';
 import Cart from './Cart';
 import Products from './Products';
+import Modal from './Modal';
 
 class App extends React.Component {
 
@@ -19,6 +20,7 @@ class App extends React.Component {
     this.removeProductFromCart = this.removeProductFromCart.bind(this);
     this.sortDataBy = this.sortDataBy.bind(this);
     this.sortByCategory = this.sortByCategory.bind(this);
+    this.closeModal = this.closeModal.bind(this);
     this.state = {
       allProducts: [],
       data: [],
@@ -70,8 +72,16 @@ class App extends React.Component {
   handleCart(id, quantity) {
     let quant = id in this.state ? this.state[id] : 0;
     quant += quantity;
-    this.setState({ ...this.state, [id]: quant });
+    const name = (this.state.allProducts.find(el => el.id == id)).title;
+    this.setState({ ...this.state, [id]: quant , justBought: name});
+    const modal = document.querySelector('.modal');
+    modal.classList.add('modal--active');
   };
+
+  closeModal() {
+    const modal = document.querySelector('.modal');
+    modal.classList.remove('modal--active');
+  }
 
   handleProductByOne(id, op) {
     let quant = this.state[id];
@@ -97,6 +107,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div className="App">
+          <Modal closeModal={this.closeModal} name={this.state.justBought}/>
           <Nav productsCnt={sumOfProducts} />
           <Routes>
             <Route path="/" element={<Products oneProduct={false} items={this.state.data} inCart={this.state} onCartChange={this.handleCart} sortDataBy={this.sortDataBy} sortByCategory={this.sortByCategory} categories={this.state.categories} />}/>
