@@ -13,7 +13,7 @@ class Cart extends React.Component {
 
   render() {
     return (
-      <CartTable removeProductFromCart={this.props.removeProductFromCart} onByOneChange={this.props.handleProductByOne} items={this.props.inCart} />
+      <CartTable removeProductFromCart={this.props.removeProductFromCart} onByOneChange={this.props.handleProductByOne} items={this.props.inCart} allProducts={this.props.allProducts} />
     )
   }
 };

@@ -288,3 +288,54 @@ nav h3 {
     transform: rotate(360deg);
   }
 }
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+  padding: 50px 0;
+}
+
+header * {
+  color: white;
+  height: fit-content;
+}
+
+header a {
+  text-decoration: none;
+}
+
+header li {
+  list-style: none;
+  margin-left: 20px;
+  height: fit-content;
+}
+
+header a:hover {
+  opacity: .5;
+}
+
+header nav ul {
+  display: flex;
+  align-items: center;
+}
+
+.cart-icon {
+  position: relative;
+}
+
+.cart-counter {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  background-color: rgba(0, 110, 255, 0.548);
+  border-radius: 50%;
+}

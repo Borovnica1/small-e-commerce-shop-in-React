@@ -13,9 +13,9 @@ class CartTable extends React.Component {
     let thereAreItemsInCart = false;
     if (this.props.items && Object.keys(this.props.items).length > 1) {
       cartRows = Object.keys(this.props.items).map(el => {
-        if (this.props.items[el] > 0) {
+        if (typeof Number(this.props.items[el]) === 'number' && this.props.items[el] > 0) {
           thereAreItemsInCart = true;
-          const product = this.props.items.data.find(x => x.id == el);
+          const product = this.props.allProducts.find(x => x.id == el);
           const amountOfThisProduct = this.props.items[el];
           sumPrice += product.price * amountOfThisProduct;
           return <CartRow removeProductFromCart={this.props.removeProductFromCart} onByOneChange={this.props.onByOneChange} quant={amountOfThisProduct} item={product}/>

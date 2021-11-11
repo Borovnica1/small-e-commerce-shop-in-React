@@ -19,7 +19,9 @@ class Products extends React.Component {
       products = this.props.items.map((c) => <Product inCart={this.props.inCart} key={c.id} item={c} onCartChange={this.props.onCartChange} />);
 
       product = <OnlyProduct inCart={this.props.inCart} items={this.props.items} onCartChange={this.props.onCartChange} />;
+    };
 
+    if (this.props.categories) {
       categories = this.props.categories.map((c) => <Option category={c} />)
     };
     
@@ -51,7 +53,7 @@ class Products extends React.Component {
 
 function Option(props) {
   return (
-    <option value={'/category/'+props.category}>Category: {props.category}</option>
+    <option value={'/category/'+props.category}>{props.category}</option>
   )
 }
 

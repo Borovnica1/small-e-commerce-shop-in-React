@@ -20,6 +20,7 @@ class App extends React.Component {
     this.sortDataBy = this.sortDataBy.bind(this);
     this.sortByCategory = this.sortByCategory.bind(this);
     this.state = {
+      allProducts: [],
       data: [],
       categories: [],
     };
@@ -30,6 +31,7 @@ class App extends React.Component {
     const url2 = 'https://fakestoreapi.com/products/categories';
     Promise.all([fetch(url).then(result => result.json()), fetch(url2).then(result => result.json())]).then((result) => {
         this.setState({
+          allProducts: result[0],
           data: result[0],
           categories: result[1]
         })
@@ -37,7 +39,6 @@ class App extends React.Component {
   };
 
   sortByCategory(type) {
-    console.log('katergorija', type);
     const url = `https://fakestoreapi.com/products${type}`;
     fetch(url)
       .then((result) => result.json())
@@ -85,17 +86,25 @@ class App extends React.Component {
   }
 
   render() {
+    let sumOfProducts = 0;
+    for (let el of Object.keys(this.state)) {
+      if (typeof Number(this.state[el]) === 'number' && this.state[el] > 0) {
+        sumOfProducts += Number(this.state[el]);
+      };
+    }
+
+
     return (
       <BrowserRouter>
         <div className="App">
-          <Nav />
+          <Nav productsCnt={sumOfProducts} />
           <Routes>
             <Route path="/" element={<Products oneProduct={false} items={this.state.data} inCart={this.state} onCartChange={this.handleCart} sortDataBy={this.sortDataBy} sortByCategory={this.sortByCategory} categories={this.state.categories} />}/>
             <Route path="/products" element={<Products oneProduct={false} items={this.state.data} inCart={this.state} onCartChange={this.handleCart} sortDataBy={this.sortDataBy} sortByCategory={this.sortByCategory} categories={this.state.categories} />} />
             <Route path="/product" element={<Products oneProduct={true} items={this.state.data} inCart={this.state} onCartChange={this.handleCart} />}>
               <Route path=":id" />
             </Route>
-            <Route path="/cart" element={<Cart oneProduct={false} inCart={this.state} removeProductFromCart={this.removeProductFromCart} handleProductByOne={this.handleProductByOne} items={this.props.inCart} />}/>
+            <Route path="/cart" element={<Cart oneProduct={false} inCart={this.state} removeProductFromCart={this.removeProductFromCart} handleProductByOne={this.handleProductByOne} allProducts={this.state.allProducts} />}/>
           </Routes>
         </div>
       </BrowserRouter>

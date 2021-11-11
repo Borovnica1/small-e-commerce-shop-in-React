@@ -4,16 +4,17 @@ import './App.css';
 import { Link } from "react-router-dom";
  
 
-function Nav() {
+function Nav(props) {
   return (
-    <nav style={{color: '#fff'}}>
-      <h3>Logo</h3>
-      <ul>
-        <li><Link to={`/products`}>Products</Link></li>
-        <li><Link to={`/product`}>PRODUCTTT</Link></li>
-        <li><Link to={`/cart`}>Cart</Link></li>
-      </ul>
-    </nav>
+    <header>
+      <h3>E-commerce shop in React</h3>
+      <nav>
+        <ul>
+          <li><Link to={`/products`}>Products</Link></li>
+          <Link to={`/cart`}><li className="cart-icon"><span className="cart-counter">{props.productsCnt}</span><i class="fas fa-shopping-cart fa-2x"></i></li></Link>
+        </ul>
+      </nav>
+    </header>
   )
 }
 
