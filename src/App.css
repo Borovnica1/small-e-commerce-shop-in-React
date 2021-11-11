@@ -372,7 +372,7 @@ header nav ul {
   max-width: 500px;
   width: 90%;
   height: 200px;
-  background-color: #ffffff81;
+  background-color: #fff;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -386,7 +386,7 @@ header nav ul {
 }
 
 .modal .box > h3 > .fas {
-  color: greenyellow;
+  color: green;
   margin-left: 10px;
 }
 
@@ -396,6 +396,7 @@ header nav ul {
   margin: 0 5px;
   cursor: pointer;
   border-radius: 5px;
+  background-color: rgb(223, 223, 223);
 }
 
 .modal .box button:hover {
